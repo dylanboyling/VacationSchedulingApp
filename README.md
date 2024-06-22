@@ -1,29 +1,29 @@
-<strong>**DO NOT DISTRIBUTE OR PUBLICLY POST SOLUTIONS TO THESE LABS. MAKE ALL FORKS OF THIS REPOSITORY WITH SOLUTION CODE PRIVATE. PLEASE REFER TO THE STUDENT CODE OF CONDUCT AND ETHICAL EXPECTATIONS FOR COLLEGE OF INFORMATION TECHNOLOGY STUDENTS FOR SPECIFICS. **</strong>
+# D424 - Software Engineering Capstone
 
-# WESTERN GOVERNOR UNIVERSITY 
-## D424 – SOFTWARE ENGINEERING CAPSTONE
-Welcome to Software Engineering Capstone! This is an opportunity for students to develop full stack software engineering documentation and applications. They will execute documentation, unit testing, revision of software applications, and deploy software applications with scripts and containers on a cloud platform.
+Hi! I'm Dylan Boyling and this is my Vacation Scheduling App which was created for the Software Engineering Capstone – D424. 
 
-FOR SPECIFIC TASK INSTRUCTIONS AND REQUIREMENTS FOR THIS ASSESSMENT, PLEASE REFER TO THE COURSE PAGE.
-BASIC INSTRUCTIONS
-For this assessment, you will deploy your developed full stack software product to a web service of your choice.
+The purpose of this mobile app is to provide users with a tool for managing and organizing their vacations and excursions. The app allows users to create, update, and delete vacation details such as the title, lodging, start date, and end date. It also facilitates the tracking of excursions associated with each vacation, including the title and date of the excursion. Features include detailed views, notifications for vacation and excursion dates, and sharing details of your vacation.
 
+## How to use
 
-## SUPPLEMENTAL RESOURCES  
-1.	How to clone a project to IntelliJ using Git?
+The app starts with a welcome screen which contains a title, logo, and purple enter button. Tap the enter button to enter the app.
 
-> Ensure that you have Git installed on your system and that IntelliJ is installed using [Toolbox](https://www.jetbrains.com/toolbox-app/). Make sure that you are using version 2022.3.2. Once this has been confirmed, click the clone button and use the 'IntelliJ IDEA (HTTPS)' button. This will open IntelliJ with a prompt to clone the proejct. Save it in a safe location for the directory and press clone. IntelliJ will prompt you for your credentials. Enter in your WGU Credentials and the project will be cloned onto your local machine.  
+This screen contains the list of vacations you have created. To create a new vacation, tap the circular plus button in the bottom right corner of the screen. This will bring you to the vacation details page where you will need to enter the name of your vacation, lodging, start date, and end date. Heads up, the dates are validated so you need to make sure that your end date is after your start date. To finalize the creation of your vacation, tap the options menu in the top right corner (three vertical dots) and tap save.
 
-2. How to create a branch and start Development?
+Once the vacation has been saved, you will be returned back to your list of vacations. To add an excursion to your vacation, tap the vacation you wish to add an excursion to which will bring you to the vacation details screen. 
 
-- GitLab method
-> Press the '+' button located near your branch name. In the dropdown list, press the 'New branch' button. This will allow you to create a name for your branch. Once the branch has been named, you can select 'Create Branch' to push the branch to your repository.
+Once in the vacation details screen, you will see all of the details about your information including any associated excursions. You can update your vacation details and save it the same way as when creating a vacation. To add an excursion to the vacation, tap the circular plus button in the bottom right corner of the screen. Enter the name of your excursion and the date that it occurs on. Heads up, the dates are validated so you need to make sure that your the date of the excursion occurs between the start and end dates of the vacation. When you are ready, tap the options menu in the top right corner (three vertical dots) and tap save.
 
-- IntelliJ method
-> In IntelliJ, Go to the 'Git' button on the top toolbar. Select the new branch option and create a name for the branch. Make sure checkout branch is selected and press create. You can now add a commit message and push the new branch to the local repo.
+Good job! You have now created a vacation and associated an excursion with it. After creating an excursion, you will return to the vacation details screen. From here, you can tap the options menu in the top right and either save any changes you've made, delete the vacation, set a reminder for the start and end date, or share the vacation and the details of any related excursions. 
 
-## SUPPORT
-If you need additional support, please navigate to the course page and reach out to your course instructor.
+Let's clean up! You cannot delete a vacation without first deleting any associated excursions, so tap the excursion you made earlier to enter the excursion details screen. Tap the top right options menu and you will see options to save any changes you've made, delete the excursion, or set a reminder for the day that the excursion occurs. Tap the delete option which will return us to the vacation details screen after deleting the excursion. Now that all of the excursions are deleted, we can delete the vacation itself. Tap the options menu in the top right corner and tap delete. 
 
-## FUTURE USE
-Take this opportunity to create or add to a simple resume portfolio to highlight and showcase your work for future use in career search, experience, and education!
+Now that you've gone through the basics, you should have a good understanding of how to manage vacations and any associated excursions!
+
+## Android version
+
+The signed APK can be installed on devices running Android 11 (API level 30) and targets Android 13 (API level 33).
+
+## Git repository
+
+Here is a link to the [git repository](https://gitlab.com/wgu-gitlab-environment/student-repos/dylanboyling/d424-software-engineering-capstone).
