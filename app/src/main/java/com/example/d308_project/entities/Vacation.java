@@ -1,24 +1,16 @@
 package com.example.d308_project.entities;
 
 import androidx.room.Entity;
-import androidx.room.PrimaryKey;
+import androidx.room.Ignore;
 
 @Entity(tableName = "vacations")
-public class Vacation {
-
-    @PrimaryKey(autoGenerate = true)
-    private int id;
-
-    private String name;
+public class Vacation extends TravelEntity {
 
     private String lodging;
 
     private String startDate;
 
     private String endDate;
-
-    public Vacation () {
-    }
 
     public Vacation(final String name, final String lodging, final String startDate, final String endDate) {
         this.name = name;
@@ -27,28 +19,13 @@ public class Vacation {
         this.endDate = endDate;
     }
 
+    @Ignore
     public Vacation(final int id, final String name, final String lodging, final String startDate, final String endDate) {
         this.id = id;
         this.name = name;
         this.lodging = lodging;
         this.startDate = startDate;
         this.endDate = endDate;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String title) {
-        this.name = title;
     }
 
     public String getLodging() {

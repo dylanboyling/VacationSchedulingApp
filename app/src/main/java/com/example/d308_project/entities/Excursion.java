@@ -2,52 +2,28 @@ package com.example.d308_project.entities;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.Index;
-import androidx.room.PrimaryKey;
 
 @Entity(tableName = "excursions", foreignKeys = @ForeignKey(entity = Vacation.class, parentColumns = "id", childColumns = "vacationId", onDelete = ForeignKey.RESTRICT), indices = @Index(value = "vacationId") // Ensure this column is indexed for faster queries
 )
-public class Excursion {
-
-    @PrimaryKey(autoGenerate = true)
-    private int id;
-
-    private String name;
+public class Excursion extends TravelEntity {
 
     private String date;
 
     private int vacationId;
 
-    public Excursion(){
-    }
-
     public Excursion(final String name, final String date, final int vacationId) {
-        this.name = name;
+        super(name);
         this.date = date;
         this.vacationId = vacationId;
     }
 
+    @Ignore
     public Excursion(final int id, final String name, final String date, final int vacationId) {
-        this.id = id;
-        this.name = name;
+        super(id, name);
         this.date = date;
         this.vacationId = vacationId;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(final int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(final String name) {
-        this.name = name;
     }
 
     public String getDate() {
