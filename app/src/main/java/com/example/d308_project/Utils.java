@@ -37,6 +37,13 @@ public class Utils {
 
         return parsedDate;
     }
+
+    public static String sanitizeString(String input) {
+        if (input == null) {
+            return "";
+        }
+        return input.trim().replaceAll("[^a-zA-Z0-9\\s]", "");
+    }
 }
 
 

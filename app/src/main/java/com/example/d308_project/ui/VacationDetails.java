@@ -149,10 +149,15 @@ public class VacationDetails extends AppCompatActivity {
                 + "Dates: " + startDate + " to " + endDate;
 
         final StringBuilder excursionDetails = new StringBuilder();
-        for (final Excursion excursion : repository.getAssociatedExcursions(vacationId))
-            excursionDetails.append(excursion.getName()).append(" on ").append(excursion.getDate())
-                    .append(System.lineSeparator());
-        excursionDetails.delete(excursionDetails.length() - 1, excursionDetails.length());
+        final List<Excursion> excursions = repository.getAssociatedExcursions(vacationId);
+        if(excursions.isEmpty()) {
+            excursionDetails.append("No excursions").append(System.lineSeparator());
+        } else {
+            for (final Excursion excursion : repository.getAssociatedExcursions(vacationId))
+                excursionDetails.append(excursion.getName()).append(" on ").append(excursion.getDate())
+                        .append(System.lineSeparator());
+            excursionDetails.delete(excursionDetails.length() - 1, excursionDetails.length());
+        }
 
         sendIntent.putExtra(Intent.EXTRA_SUBJECT, title + " from " + startDate + " to " + endDate);
         sendIntent.putExtra(Intent.EXTRA_TEXT, vacationDetails + System.lineSeparator() + System.lineSeparator()
@@ -192,8 +197,8 @@ public class VacationDetails extends AppCompatActivity {
     }
 
     private void insertVacation() {
-        String title = nameEditText.getText().toString();
-        String lodging = lodgingEditText.getText().toString();
+        String title = Utils.sanitizeString(nameEditText.getText().toString());
+        String lodging = Utils.sanitizeString(lodgingEditText.getText().toString());
         final String startDate = startDateEditText.getText().toString();
         final String endDate = endDateEditText.getText().toString();
 
@@ -207,6 +212,7 @@ public class VacationDetails extends AppCompatActivity {
         final Vacation vacation = new Vacation(title, lodging, startDate, endDate);
         if (validateDates(vacation)) {
             repository.insert(vacation);
+
             Toast.makeText(this, "Vacation created", Toast.LENGTH_SHORT).show();
             finish();
         }
@@ -247,6 +253,12 @@ public class VacationDetails extends AppCompatActivity {
     private boolean validateDates(final Vacation vacation) {
         final Date vacationStart = Utils.parseDate(vacation.getStartDate());
         final Date vacationEnd = Utils.parseDate(vacation.getEndDate());
+
+        if(vacationStart == null || vacationEnd == null){
+            Toast.makeText(VacationDetails.this, "Please enter a "
+                    + (vacationStart == null ? "start" : "end") + " date!", Toast.LENGTH_LONG).show();
+            return false;
+        }
 
         if (vacationEnd.before(vacationStart)) {
             Toast.makeText(VacationDetails.this, "Vacation start date must be before end date!", Toast.LENGTH_LONG).show();

@@ -1,5 +1,7 @@
 package com.example.d308_project.ui;
 
+import static com.example.d308_project.Utils.sanitizeString;
+
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -89,14 +91,19 @@ public class ExcursionDetails extends AppCompatActivity {
     }
 
     private void insertExcursion(final int parentVacationId) {
-        String title = nameEditText.getText().toString();
+        String title = Utils.sanitizeString(nameEditText.getText().toString());
         String date = dateEditText.getText().toString();
 
         if (title.isEmpty()) {
             title = "No Title";
         }
 
-        if (validateDate(parentVacationId)) {
+        if (date.isEmpty()){
+            Toast.makeText(ExcursionDetails.this, "Excursion date cannot be empty!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (validateDate()) {
             final Excursion excursion = new Excursion(title, date, parentVacationId);
             repository.insert(excursion);
             Toast.makeText(this, "Excursion created", Toast.LENGTH_SHORT).show();
@@ -108,14 +115,19 @@ public class ExcursionDetails extends AppCompatActivity {
     }
 
     private void updateExcursion(final int excursionId, final int parentVacationId) {
-        String title = nameEditText.getText().toString();
+        String title = Utils.sanitizeString(nameEditText.getText().toString());
         String date = dateEditText.getText().toString();
 
         if (title.isEmpty()) {
             title = "No Title";
         }
 
-        if (validateDate(parentVacationId)) {
+        if(date.isEmpty()){
+            Toast.makeText(ExcursionDetails.this, "Excursion date cannot be empty!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (validateDate()) {
             final Excursion excursion = new Excursion(excursionId, title, date, parentVacationId);
             repository.insert(excursion);
             Toast.makeText(this, "Excursion updated", Toast.LENGTH_SHORT).show();
@@ -147,9 +159,8 @@ public class ExcursionDetails extends AppCompatActivity {
         alarmManager.set(AlarmManager.RTC_WAKEUP, triggerExcursionStart, sender);
     }
 
-    private boolean validateDate(final int parentVacationId) {
-        final Vacation parentVacation = repository.getVacationById(getIntent().getIntExtra(
-                "vacationId", -1));
+    private boolean validateDate() {
+        final Vacation parentVacation = repository.getVacationById(parentVacationId);
 
         final Date excursionDate = Utils.parseDate(dateEditText.getText().toString());
         final Date vacationStart = Utils.parseDate(parentVacation.getStartDate());

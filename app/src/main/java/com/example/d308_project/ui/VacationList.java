@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.d308_project.R;
+import com.example.d308_project.Utils;
 import com.example.d308_project.database.Repository;
 import com.example.d308_project.entities.Excursion;
 import com.example.d308_project.entities.Vacation;
@@ -25,6 +26,8 @@ public class VacationList extends AppCompatActivity {
     private Repository repository;
 
     private VacationAdapter vacationAdapter;
+
+    private String currentQuery = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +67,9 @@ public class VacationList extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(final String query) {
-                filterVacations(query);
+                final String sanitizedQuery = Utils.sanitizeString(query);
+                currentQuery = sanitizedQuery;
+                filterVacations(sanitizedQuery);
                 return true;
             }
         });
@@ -98,9 +103,19 @@ public class VacationList extends AppCompatActivity {
     public void onResume() {
         super.onResume();
 
+        refreshVacationList();
+
         final RecyclerView vacationRecyclerView = findViewById(R.id.vacationRecyclerView);
         vacationRecyclerView.setAdapter(vacationAdapter);
         vacationRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    private void refreshVacationList() {
+        if (currentQuery.isEmpty()) {
+            vacationAdapter.setVacations(repository.getAllVacations());
+        } else {
+            filterVacations(currentQuery);
+        }
     }
 
     private void filterVacations(final String query) {
