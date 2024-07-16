@@ -23,11 +23,11 @@ import java.util.List;
 
 public class VacationList extends AppCompatActivity {
 
-    private Repository repository;
+    public Repository repository;
 
     private VacationAdapter vacationAdapter;
 
-    private String currentQuery = "";
+    public String currentQuery = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +110,7 @@ public class VacationList extends AppCompatActivity {
         vacationRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    private void refreshVacationList() {
+    public void refreshVacationList() {
         if (currentQuery.isEmpty()) {
             vacationAdapter.setVacations(repository.getAllVacations());
         } else {
@@ -118,7 +118,7 @@ public class VacationList extends AppCompatActivity {
         }
     }
 
-    private void filterVacations(final String query) {
+    public void filterVacations(final String query) {
         final List<Vacation> mVacations = repository.getAllVacations();
         final List<Vacation> filteredVacations = new ArrayList<>();
 

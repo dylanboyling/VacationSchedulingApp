@@ -26,17 +26,17 @@ import java.util.List;
 
 public class VacationDetails extends AppCompatActivity {
 
-    private Repository repository;
+    Repository repository;
 
-    private int vacationId;
+    int vacationId;
 
-    private TextInputEditText nameEditText;
+    TextInputEditText nameEditText;
 
-    private TextInputEditText lodgingEditText;
+    TextInputEditText lodgingEditText;
 
-    private TextInputEditText startDateEditText;
+    TextInputEditText startDateEditText;
 
-    private TextInputEditText endDateEditText;
+    TextInputEditText endDateEditText;
 
     private RecyclerView recyclerView;
 
@@ -196,7 +196,7 @@ public class VacationDetails extends AppCompatActivity {
         alarmManager.set(AlarmManager.RTC_WAKEUP, triggerEndOfVacation, endSender);
     }
 
-    private void insertVacation() {
+    void insertVacation() {
         String title = Utils.sanitizeString(nameEditText.getText().toString());
         String lodging = Utils.sanitizeString(lodgingEditText.getText().toString());
         final String startDate = startDateEditText.getText().toString();
@@ -218,7 +218,7 @@ public class VacationDetails extends AppCompatActivity {
         }
     }
 
-    private void updateVacation(final int vacationId) {
+    void updateVacation(final int vacationId) {
         String title = nameEditText.getText().toString();
         String lodging = lodgingEditText.getText().toString();
         final String startDate = startDateEditText.getText().toString();
@@ -239,7 +239,7 @@ public class VacationDetails extends AppCompatActivity {
         }
     }
 
-    private void deleteVacation(final int vacationId) {
+    void deleteVacation(final int vacationId) {
         if (!repository.getAssociatedExcursions(vacationId).isEmpty()) {
             Toast.makeText(VacationDetails.this, "Cannot delete vacation with associated excursions!", Toast.LENGTH_LONG).show();
             return;
@@ -250,7 +250,7 @@ public class VacationDetails extends AppCompatActivity {
         finish();
     }
 
-    private boolean validateDates(final Vacation vacation) {
+    boolean validateDates(final Vacation vacation) {
         final Date vacationStart = Utils.parseDate(vacation.getStartDate());
         final Date vacationEnd = Utils.parseDate(vacation.getEndDate());
 
