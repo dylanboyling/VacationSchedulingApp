@@ -67,9 +67,7 @@ public class VacationList extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(final String query) {
-                final String sanitizedQuery = Utils.sanitizeString(query);
-                currentQuery = sanitizedQuery;
-                filterVacations(sanitizedQuery);
+                filterVacations(query);
                 return true;
             }
         });
