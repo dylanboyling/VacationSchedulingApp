@@ -1,7 +1,5 @@
 package com.example.d308_project.ui;
 
-import static com.example.d308_project.Utils.sanitizeString;
-
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -153,7 +151,7 @@ public class ExcursionDetails extends AppCompatActivity {
                 + " starts today!");
 
         PendingIntent sender = PendingIntent.getBroadcast(ExcursionDetails.this,
-                ++MainActivity.numberOfAlerts, intent, PendingIntent.FLAG_IMMUTABLE);
+                ++VacationSchedulingApp.numberOfAlerts, intent, PendingIntent.FLAG_IMMUTABLE);
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, triggerExcursionStart, sender);

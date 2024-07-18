@@ -185,14 +185,14 @@ public class VacationDetails extends AppCompatActivity {
                     + " starts today!");
         }
         final PendingIntent startSender = PendingIntent.getBroadcast(VacationDetails.this,
-                ++MainActivity.numberOfAlerts, startIntent, PendingIntent.FLAG_IMMUTABLE);
+                ++VacationSchedulingApp.numberOfAlerts, startIntent, PendingIntent.FLAG_IMMUTABLE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, triggerStartOfVacation, startSender);
 
         final Intent endIntent = new Intent(VacationDetails.this, MyReceiver.class);
         endIntent.putExtra("reminderMessage", nameEditText.getText().toString()
                 + " ends today!");
         final PendingIntent endSender = PendingIntent.getBroadcast(VacationDetails.this,
-                ++MainActivity.numberOfAlerts, endIntent, PendingIntent.FLAG_IMMUTABLE);
+                ++VacationSchedulingApp.numberOfAlerts, endIntent, PendingIntent.FLAG_IMMUTABLE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, triggerEndOfVacation, endSender);
     }
 
