@@ -1,11 +1,11 @@
-package com.example.d308_project.database;
+package com.dylan.d424_project.database;
 
 import android.app.Application;
 
-import com.example.d308_project.dao.ExcursionDao;
-import com.example.d308_project.dao.VacationDao;
-import com.example.d308_project.entities.Excursion;
-import com.example.d308_project.entities.Vacation;
+import com.dylan.d424_project.dao.ExcursionDao;
+import com.dylan.d424_project.dao.VacationDao;
+import com.dylan.d424_project.entities.Excursion;
+import com.dylan.d424_project.entities.Vacation;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;

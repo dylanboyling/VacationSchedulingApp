@@ -1,4 +1,4 @@
-package com.example.d308_project.entities;
+package com.dylan.d424_project.entities;
 
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;

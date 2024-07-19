@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.d308_project'
+    namespace 'com.dylan.d424_capstone'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.d308_project"
+        applicationId "com.dylan.d424_capstone"
         minSdk 30
         targetSdk 33
         versionCode 1

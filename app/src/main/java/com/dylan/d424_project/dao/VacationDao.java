@@ -1,4 +1,4 @@
-package com.example.d308_project.dao;
+package com.dylan.d424_project.dao;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.d308_project.entities.Vacation;
+import com.dylan.d424_project.entities.Vacation;
 
 import java.util.List;
 

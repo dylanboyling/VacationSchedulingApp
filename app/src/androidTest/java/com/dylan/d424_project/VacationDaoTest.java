@@ -1,4 +1,4 @@
-package com.example.d308_project;
+package com.dylan.d424_project;
 
 import android.content.Context;
 
@@ -6,9 +6,9 @@ import androidx.room.Room;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
-import com.example.d308_project.dao.VacationDao;
-import com.example.d308_project.database.DatabaseBuilder;
-import com.example.d308_project.entities.Vacation;
+import com.dylan.d424_project.dao.VacationDao;
+import com.dylan.d424_project.database.DatabaseBuilder;
+import com.dylan.d424_project.entities.Vacation;
 
 import org.junit.After;
 import org.junit.Before;

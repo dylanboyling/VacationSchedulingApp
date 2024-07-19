@@ -1,4 +1,4 @@
-package com.example.d308_project.ui;
+package com.dylan.d424_project.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -11,11 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.d308_project.R;
-import com.example.d308_project.Utils;
-import com.example.d308_project.database.Repository;
-import com.example.d308_project.entities.Excursion;
-import com.example.d308_project.entities.Vacation;
+import com.dylan.d424_capstone.R;
+import com.dylan.d424_project.database.Repository;
+import com.dylan.d424_project.entities.Excursion;
+import com.dylan.d424_project.entities.Vacation;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;

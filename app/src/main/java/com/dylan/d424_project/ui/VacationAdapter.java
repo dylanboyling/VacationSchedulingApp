@@ -1,4 +1,4 @@
-package com.example.d308_project.ui;
+package com.dylan.d424_project.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,8 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.d308_project.R;
-import com.example.d308_project.entities.Vacation;
+import com.dylan.d424_capstone.R;
+import com.dylan.d424_project.entities.Vacation;
 
 import java.util.List;
 

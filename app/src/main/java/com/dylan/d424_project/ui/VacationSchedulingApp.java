@@ -1,4 +1,4 @@
-package com.example.d308_project.ui;
+package com.dylan.d424_project.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-import com.example.d308_project.R;
+import com.dylan.d424_capstone.R;
+
 
 public class VacationSchedulingApp extends AppCompatActivity {
 

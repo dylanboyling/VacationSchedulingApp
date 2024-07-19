@@ -1,4 +1,4 @@
-package com.example.d308_project.database;
+package com.dylan.d424_project.database;
 
 import android.content.Context;
 
@@ -6,10 +6,10 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.d308_project.dao.ExcursionDao;
-import com.example.d308_project.dao.VacationDao;
-import com.example.d308_project.entities.Excursion;
-import com.example.d308_project.entities.Vacation;
+import com.dylan.d424_project.dao.ExcursionDao;
+import com.dylan.d424_project.dao.VacationDao;
+import com.dylan.d424_project.entities.Excursion;
+import com.dylan.d424_project.entities.Vacation;
 
 
 @Database(entities = {Excursion.class, Vacation.class}, version = 1, exportSchema = false)

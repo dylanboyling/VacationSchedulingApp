@@ -1,4 +1,4 @@
-package com.example.d308_project.ui;
+package com.dylan.d424_project.ui;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -9,7 +9,7 @@ import android.content.Intent;
 
 import androidx.core.app.NotificationCompat;
 
-import com.example.d308_project.R;
+import com.dylan.d424_capstone.R;
 
 public class MyReceiver extends BroadcastReceiver {
 
